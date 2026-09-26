@@ -51,7 +51,7 @@ export default function RegisterPage() {
     setSubmitting(true);
     try {
       await register(name.trim(), email.trim(), password, confirmPassword);
-      navigate("/", { replace: true });
+      navigate("/dashboard", { replace: true });
     } catch (err) {
       setError(getApiErrorMessage(err, "Registration failed. Please check your information."));
     } finally {

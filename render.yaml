@@ -58,6 +58,11 @@ services:
         value: "90"
       - key: ADVANCED_PIPELINE_ENABLED
         value: "true"
+      # --- Public home / privacy pages used for Google OAuth brand verification ---
+      - key: APP_PUBLIC_NAME
+        value: MailShield            # must equal the OAuth consent-screen "App name"
+      - key: GOOGLE_SITE_VERIFICATION
+        sync: false                  # Search Console "HTML tag" content value
 
   # Isolated static-analysis sandbox. Own container, own image, NO database, NO Gmail/Google/Gemini
   # secrets, NO disk. Suspicious attachments/URLs are analysed here, never on mailshield-sih.

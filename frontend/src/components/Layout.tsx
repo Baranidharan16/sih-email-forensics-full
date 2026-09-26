@@ -19,7 +19,7 @@ const NAV_ITEMS = [
   {
     group: "COMMAND CENTER",
     items: [
-      { to: "/", label: "Dashboard", icon: LayoutGrid, end: true },
+      { to: "/dashboard", label: "Dashboard", icon: LayoutGrid, end: true },
       { to: "/alerts", label: "SOC Threat Center", icon: AlertTriangle },
       { to: "/soc/config", label: "SOC Alarm Config", icon: Siren },
       { to: "/campaigns", label: "Campaigns & Clusters", icon: Network },

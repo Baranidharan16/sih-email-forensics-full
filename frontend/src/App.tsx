@@ -67,7 +67,7 @@ export default function App() {
                 <Route path="/settings" element={<ProfilePage />} />
 
                 {/* Fallback Catch-All */}
-                <Route path="*" element={<Navigate to="/" replace />} />
+                <Route path="*" element={<Navigate to="/dashboard" replace />} />
               </Route>
             </Route>
           </Routes>

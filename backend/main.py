@@ -176,6 +176,8 @@ AUTH = [Depends(get_current_user)]            # must be signed in
 OWNER = [Depends(require_resource_owner)]     # signed in AND owns {investigation_id}/{alert_id}
 
 app.include_router(health_router)                          # public: liveness only
+from app.public_site import router as public_site_router  # noqa: E402
+app.include_router(public_site_router)                     # public: home, privacy policy, terms (server-rendered for Google verification)
 app.include_router(auth_router)                            # public: register/login/refresh
 app.include_router(analysis_router, dependencies=AUTH)     # scans are saved under the caller
 app.include_router(assistant_router, dependencies=AUTH)    # paid AI APIs — no anonymous use

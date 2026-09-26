@@ -17,7 +17,7 @@ export default function LoginPage() {
   const [submitting, setSubmitting] = useState(false);
   const [rememberMe, setRememberMe] = useState(true);
 
-  const from = (location.state as any)?.from?.pathname || "/";
+  const from = (location.state as any)?.from?.pathname || "/dashboard";
   const notice: string | null =
     (location.state as any)?.notice || (sessionExpired ? "Your session has expired. Please sign in again." : null);
 
