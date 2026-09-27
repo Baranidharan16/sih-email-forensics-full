@@ -25,9 +25,16 @@ from services.sarvam_service import is_sarvam_configured
 router = APIRouter(tags=["Health & Status"])
 
 
-@router.get("/health")
-@router.get("/api/health")
-@router.get("/api/v1/health")
+@router.api_route("/ping", methods=["GET", "HEAD"], include_in_schema=False)
+@router.api_route("/api/v1/ping", methods=["GET", "HEAD"], include_in_schema=False)
+async def ping():
+    """Keep-alive for uptime monitors: no DB, no auth, answers GET and HEAD."""
+    return {"status": "ok"}
+
+
+@router.api_route("/health", methods=["GET", "HEAD"])
+@router.api_route("/api/health", methods=["GET", "HEAD"])
+@router.api_route("/api/v1/health", methods=["GET", "HEAD"])
 async def health_check():
     """Liveness + database connectivity. Never exposes connection details."""
     from sqlalchemy import text
